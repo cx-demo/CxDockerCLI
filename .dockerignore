@@ -1,0 +1,4 @@
+# Exclude readme files
+*.md
+!README.md
+.git
