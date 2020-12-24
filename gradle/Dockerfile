@@ -1,9 +1,9 @@
-# CxCLI installed with Maven
-FROM maven:openjdk
+# CxCLI installed with Gradle
+FROM gradle:latest
 
 LABEL Cx Demo SG <cxdemosg@gmail.com>
 
-RUN microdnf install unzip
+RUN apt update && apt install apt install curl unzip
 
 # Downloading and installing CxCLI
 ARG CX_VERSION=9.0.0
@@ -29,4 +29,3 @@ RUN echo "Downloading CXCLI" \
 WORKDIR /opt/cxcli
 
 ENTRYPOINT ["/opt/cxcli/runCxConsole.sh"]
-

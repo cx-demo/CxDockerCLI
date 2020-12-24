@@ -1,9 +1,9 @@
-# CxCLI installed with Maven
-FROM maven:openjdk
+# CxCLI installed with dotnet
+FROM mcr.microsoft.com/dotnet/sdk:3.1
 
 LABEL Cx Demo SG <cxdemosg@gmail.com>
 
-RUN microdnf install unzip
+RUN apt-get update && apt-get -y install curl unzip openjdk-11-jdk-headless 
 
 # Downloading and installing CxCLI
 ARG CX_VERSION=9.0.0
@@ -29,4 +29,3 @@ RUN echo "Downloading CXCLI" \
 WORKDIR /opt/cxcli
 
 ENTRYPOINT ["/opt/cxcli/runCxConsole.sh"]
-
